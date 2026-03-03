@@ -22,7 +22,7 @@ Obsługiwane są tylko zlecenia:
 -workorder „Przygotowanie produkcji” w stanie ready.
 
 Program tworzy foldery w lokalizacji:
-/home/S3-AS/TWOJDORADCA/PRODUKCJA/ZAMOWIENIA PRODUKCJI/
+/PRODUKCJA/ZAMOWIENIA PRODUKCJI/
 
 Struktura katalogów jest kopiowana z:
 --- NARZEDZIA ---/<nazwa usługi>/.../struktura katalogów/
