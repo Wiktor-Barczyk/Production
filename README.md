@@ -9,7 +9,7 @@ eliminując ręczne czynności wykonywane przez pracowników działu produkcji
 i zapewniając spójność danych między systemem a strukturą dokumentów.
 
 
-Główne założenia programu:
+# Główne założenia programu:
 
 Komunikacja z Odoo odbywa się przez XML‑RPC (moduły common i object).
 
@@ -38,7 +38,7 @@ Program obsługuje powiązane zlecenia (np. rozliczenia roczne).
 Program kończy workorder i dodaje wpis w chatterze z szablonu.
 
 
-Najważniejsze elementy modułu:
+# Najważniejsze elementy modułu:
 
     1. get_all_productions()
        - Pobiera wszystkie aktywne zlecenia produkcyjne w stanie "confirmed",
