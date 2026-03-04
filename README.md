@@ -18,21 +18,19 @@ Program działa interaktywnie w terminalu użytkownik wpisuje komendy.
 
 Obsługiwane są tylko zlecenia:
 
--w stanie confirmed (produkcje),
-
--workorder „Przygotowanie produkcji” w stanie ready.
+- w stanie confirmed (produkcje),
+- workorder „Przygotowanie produkcji” w stanie ready.
 
 Program tworzy foldery w lokalizacji:
-/PRODUKCJA/ZAMOWIENIA PRODUKCJI/
+
+- /PRODUKCJA/ZAMOWIENIA PRODUKCJI/
 
 Struktura katalogów jest kopiowana z:
---- NARZEDZIA ---/<nazwa usługi>/.../struktura katalogów/
+   -  --- NARZEDZIA ---/<nazwa usługi>/.../struktura katalogów/
 
 Program rozpoznaje klienta:
 
--z partnera na workorderze,
-
--lub z relacji partnerów (firmaosoba).
+- z partnera na workorderze,
 
 Program obsługuje powiązane zlecenia (np. rozliczenia roczne).
 
