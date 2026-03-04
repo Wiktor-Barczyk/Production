@@ -241,64 +241,18 @@ def create_order_folder(folder_name):
     os.makedirs(path, exist_ok=True)
     return path
 
-# ustala właściwego klienta
-# pobiera: partner_id
-# zwraca: str
-def get_real_client_name(conn, partner_id):
-
-    partner = conn.models.execute_kw(
-        conn.db, conn.uid, conn.password,
-        "res.partner", "read", [[partner_id]],
-        {"fields": ["name", "company_type"]}
-    )[0]
-
-    if partner["company_type"] == "person":
-        return partner["name"]
-
-    relations = conn.models.execute_kw(
-        conn.db,
-        conn.uid,
-        conn.password,
-        "res.partner.relation",
-        "search_read",
-        [[
-            "|",
-            ("left_partner_id", "=", partner_id),
-            ("right_partner_id", "=", partner_id)
-        ]],
-        {"fields": ["type_id", "left_partner_id", "right_partner_id"]}
-    )
-
-    for rel in relations:
-        rel_type = rel.get("type_id", ["", ""])[1].lower()
-
-        if rel_type != "firma":
-            continue
-
-        left = rel.get("left_partner_id")
-        right = rel.get("right_partner_id")
-
-        if left and left[0] == partner_id and right:
-            return right[1]
-
-        if right and right[0] == partner_id and left:
-            return left[1]
-
-    return partner["name"]
-
 # wybiera nazwę klienta
 # pobiera: workorder_partner_id, production_partner_id
 # zwraca: str
 def get_client_name(conn, workorder_partner_id, production_partner_id):
-    if workorder_partner_id:
-        partner = conn.models.execute_kw(
-            conn.db, conn.uid, conn.password,
-            "res.partner", "read", [[workorder_partner_id]],
-            {"fields": ["name"]}
-        )[0]
-        return partner["name"]
+    partner_id = workorder_partner_id or production_partner_id
 
-    return get_real_client_name(conn, production_partner_id)
+    partner = conn.models.execute_kw(
+        conn.db, conn.uid, conn.password,
+        "res.partner", "read", [[partner_id]],
+        {"fields": ["name"]}
+    )[0]
+    return partner["name"]
 
 # kopiuje strukturę katalogów
 def copy_structure(possible_names, target_folder, client_name):

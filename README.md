@@ -79,7 +79,6 @@ Najważniejsze elementy modułu:
        - Używane do automatycznego informowania o rozpoczęciu produkcji.
        - Zwraca True/False w zależności od powodzenia operacji.
 
-    8. get_client_name() / get_real_client_name()
-       - Ustalają właściwą nazwę klienta na podstawie partnera z workorderu
-         lub relacji partnerów (firmaosoba, małżonek, partner fiskalny).
-       - Zwracają nazwę gotową do użycia w strukturze katalogów.
+    8. get_client_name()
+       - Ustala właściwą nazwę klienta na podstawie partnera z workorderu.
+       - Zwraca nazwę gotową do użycia w strukturze katalogów.
